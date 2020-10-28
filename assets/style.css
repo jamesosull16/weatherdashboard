@@ -1,0 +1,15 @@
+#header {
+  text-align: center;
+  background: #464442;
+  font-size: 40px;
+  color: whitesmoke;
+  width: 100%;
+}
+
+#city-form {
+  margin-top: 20px;
+}
+
+#weather-container {
+  margin-top: 20px;
+}
