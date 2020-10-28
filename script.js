@@ -16,6 +16,7 @@ function getWeather(inputCityName) {
       searchHistory.push(inputCityName);
       console.log(searchHistory);
       //call the new function to display search history
+      setSearch();
       $("#inputCityName").val("");
     });
 }
