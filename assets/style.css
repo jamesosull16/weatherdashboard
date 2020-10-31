@@ -8,8 +8,13 @@
 
 #city-form {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #weather-container {
+  margin-top: 20px;
+}
+
+#current-day {
   margin-top: 20px;
 }
