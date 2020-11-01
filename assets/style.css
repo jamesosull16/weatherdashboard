@@ -5,9 +5,12 @@
   color: whitesmoke;
   width: 100%;
 }
-
+h3 {
+  margin: 10px;
+  margin-left: -10px;
+}
 #city-form {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -17,4 +20,25 @@
 
 #current-day {
   margin-top: 20px;
+}
+
+h6,
+p {
+  margin: 10px;
+}
+
+.card-body {
+  margin: 2.5px;
+  background-color: lightskyblue;
+}
+
+.card-body h5,
+h4 {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.card-body img {
+  text-align: center;
+  margin: 10px;
 }
