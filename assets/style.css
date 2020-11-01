@@ -7,11 +7,17 @@
 }
 h3 {
   margin: 10px;
-  margin-left: -10px;
+  margin-left: 10px;
 }
 #city-form {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 20px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+#search-history {
+  margin: 20px;
+  width: 100%;
 }
 
 #weather-container {
@@ -20,6 +26,8 @@ h3 {
 
 #current-day {
   margin-top: 20px;
+  width: 100%;
+  margin-right: 10px;
 }
 
 h6,
@@ -27,6 +35,10 @@ p {
   margin: 10px;
 }
 
+.card-deck {
+  width: fit-content;
+  margin-top: 20px;
+}
 .card-body {
   margin: 2.5px;
   background-color: lightskyblue;

@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  localStorage.getItem("searchHistory");
+});
+
 var cityNameInput = document.querySelector("#inputCityName");
 var searchButton = document.querySelector("#searchBtn");
 
@@ -14,7 +18,9 @@ var getWeather = function (inputCityName) {
     method: "GET",
   }).then(function (data) {
     console.log(data);
-    var {coord: { lat, lon },} = data;
+    var {
+      coord: { lat, lon },
+    } = data;
     var day = $("#current-day");
     day.empty();
     var cityName = $("<h2>");
@@ -23,14 +29,14 @@ var getWeather = function (inputCityName) {
     var humidity = $("<h6>");
     var windSpeed = $("<h6>");
 
+    var weatherIconUrl =
+      "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
+
     cityName.text(data.name + " " + moment().format("(" + "l" + ")"));
     weatherIcon.attr("src", data.weather[0].icon);
     temp.text("Temperature: " + data.main.temp + " °F");
     humidity.text("Humidity: " + data.main.humidity + " %");
     windSpeed.text("Wind Speed: " + data.wind.speed + " M.P.H");
-
-    var weatherIconUrl =
-      "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
 
     day.append(cityName);
     day.append(weatherIcon);
@@ -76,16 +82,20 @@ var getWeather = function (inputCityName) {
 //TODO: store to local storage
 function setSearch() {
   var historyDiv = $("#search-history");
+
   historyDiv.empty();
+
   for (var i = 0; i < searchHistory.length; i++) {
-    var li = $("<li>", {
-      class: "list-group-item",
+    var button = $("<button>", {
+      type: "button",
+      class: "list-group-item list-group-item-action",
     });
-    var newSearchHistory = $("<button>" + searchHistory[i] + "</button>", {
-      class: "list-group-item",
-    });
-    li.append(newSearchHistory);
-    historyDiv.prepend(li);
+    var li = $("<li>", { class: "list-group-item" });
+
+    li.text(searchHistory[i]);
+
+    historyDiv.prepend(button);
+    button.append(li);
   }
 }
 
@@ -99,11 +109,14 @@ var fiveDay = function (lat, lon) {
     method: "GET",
   }).then(function (data) {
     console.log(data);
-    var dayDiv = $("#five-day-cards");
-    var title = $("<h2>");
     var fiveDays = [];
+    var titleDiv = $("#title");
+    $("#title").empty();
+    var title = $("<h2>");
     $("#five-day-cards").empty();
-    for (i = 1; i < 5; i++) {
+    for (i = 1; i < 6; i++) {
+      var dayDiv = $("#five-day-cards");
+      var daysCol = $("<div>", { class: "col-lg-1.5" });
       var day = $("<div>", { class: "card card-body" });
       var date = $("<h5>");
       var weatherIcon = $("<img>");
@@ -116,12 +129,13 @@ var fiveDay = function (lat, lon) {
       temp.text("Temp: " + data.daily[i].temp.day + " °F");
       humidity.text("Humidity: " + data.daily[i].humidity + " %");
 
-      dayDiv.append(title);
+      titleDiv.append(title);
       dayDiv.append(day);
-      day.append(date);
-      day.append(weatherIcon);
-      day.append(temp);
-      day.append(humidity);
+      day.append(daysCol);
+      daysCol.append(date);
+      daysCol.append(weatherIcon);
+      daysCol.append(temp);
+      daysCol.append(humidity);
 
       fiveDays.push(day);
     }
@@ -131,4 +145,9 @@ var fiveDay = function (lat, lon) {
 
 $("#searchBtn").on("click", function () {
   getWeather(cityNameInput.value.trim());
+  localStorage.setItem("newSearchHistory", cityNameInput.value.trim());
+});
+
+$("#cityBtn").on("click", function () {
+  getWeather(cityNameInput);
 });

@@ -22,47 +22,48 @@
     <div class="container-fluid">
       
           <!-- search input and button -->
-        
-        <div class="col-lg-3"> 
-          <h3>Search for a city</h3>
-          <div class="row" id="city-form">    
-              <form class="form-inline">
-                <div class="form-group">
-                  <label for="inputCityName" class="sr-only"></label>
-                  <input
-                    type="input"
-                    class="form-control"
-                    id="inputCityName"
-                  />
-                  <button type="button" class="btn btn-primary fas fa-city"" id="searchBtn">
-                  </button>
-                </div>  
-              </form>
-          </div>
-      
-
-          <!-- search history -->
-          <div class="row">           
-            <div class="list-group" id="search-history"></div>
-          </div> 
-        </div>
-      
-      
-          <!-- current weather of the searched city -->
-        <div class="col-lg-9" >
-          <div class="row">  
-            <div class="card" id="current-day"></div>
-          </div>
-      
-          <!-- five day forecast -->
-        
-          <div class="card-deck">
-            <div class="container float-right">
-              <div id="five-day-cards"></div> 
+    <div class="row">  
+          <div class="col-lg-3"> 
+            <h3>Search for a city</h3>
+            <div class="row" id="city-form">    
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="inputCityName" class="sr-only"></label>
+                    <input
+                      type="input"
+                      class="form-control"
+                      id="inputCityName"
+                    />
+                    <button type="button" class="btn btn-primary fas fa-city"" id="searchBtn">
+                    </button>
+                  </div>  
+                </form>
             </div>
-          </div>      
-        </div>
-      
+        
+
+            <!-- search history -->
+            <div class="row">           
+              <div class="list-group" id="search-history"></div>
+            </div> 
+          </div>
+        
+        
+            <!-- current weather of the searched city -->
+      <div class="col-lg-9" >
+            <div class="row">  
+              <div class="card" id="current-day"></div>
+            </div>
+        
+            <!-- five day forecast -->
+          
+              <div class="card-deck">
+                <div class="container">
+                  <div class="row" id="title"></div>
+                  <div class="row" id="five-day-cards"></div> 
+                </div>
+              </div>      
+          
+      </div>
     </div>
     
     <!-- jquery CDN -->
