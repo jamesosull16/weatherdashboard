@@ -24,22 +24,23 @@ var getWeather = function (inputCityName) {
     var day = $("#current-day");
     day.empty();
     var cityName = $("<h2>");
-    var weatherIcon = $("<img>");
     var temp = $("<h6>");
     var humidity = $("<h6>");
     var windSpeed = $("<h6>");
 
+    var weatherIcon = data.weather[0].icon;
     var weatherIconUrl =
-      "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
+      "<img src='https://openweathermap.org/img/wn/" +
+      weatherIcon +
+      "@2x.png' width='60'></img>";
 
     cityName.text(data.name + " " + moment().format("(" + "l" + ")"));
-    weatherIcon.attr("src", data.weather[0].icon);
     temp.text("Temperature: " + data.main.temp + " °F");
     humidity.text("Humidity: " + data.main.humidity + " %");
     windSpeed.text("Wind Speed: " + data.wind.speed + " M.P.H");
 
     day.append(cityName);
-    day.append(weatherIcon);
+    day.append(weatherIconUrl);
     day.append(temp);
     day.append(humidity);
     day.append(windSpeed);
@@ -119,13 +120,17 @@ var fiveDay = function (lat, lon) {
       var daysCol = $("<div>", { class: "col-lg-1.5" });
       var day = $("<div>", { class: "card card-body" });
       var date = $("<h5>");
-      var weatherIcon = $("<img>");
       var temp = $("<h5>");
       var humidity = $("<h5>");
 
+      var fiveDayWeatherIcon = data.daily[i].weather.icon;
+      var fiveDayWeatherIconUrl =
+        "<img src='https://openweathermap.org/img/wn/" +
+        fiveDayWeatherIcon +
+        "@2x.png' width='60'></img>";
+
       title.text("5-Day Forecast:");
       date.text(moment.unix(data.daily[i].dt).format("MM/DD/YYYY"));
-      weatherIcon.attr("src", data.daily[i].weather[0].icon);
       temp.text("Temp: " + data.daily[i].temp.day + " °F");
       humidity.text("Humidity: " + data.daily[i].humidity + " %");
 
@@ -133,7 +138,7 @@ var fiveDay = function (lat, lon) {
       dayDiv.append(day);
       day.append(daysCol);
       daysCol.append(date);
-      daysCol.append(weatherIcon);
+      daysCol.append(fiveDayWeatherIconUrl);
       daysCol.append(temp);
       daysCol.append(humidity);
 
