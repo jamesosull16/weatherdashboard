@@ -11,7 +11,7 @@ var currentWeatherData = [];
 
 //main function to hit the weather API
 var getWeather = function (inputCityName) {
-  var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&units=imperial&appid=789c208b0036afe3defb6d2d5ebbbe29`;
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&units=imperial&appid=789c208b0036afe3defb6d2d5ebbbe29`;
 
   $.ajax({
     url: queryURL,
@@ -45,7 +45,7 @@ var getWeather = function (inputCityName) {
     day.append(humidity);
     day.append(windSpeed);
 
-    var uvIndexUrl = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=789c208b0036afe3defb6d2d5ebbbe29`;
+    var uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=789c208b0036afe3defb6d2d5ebbbe29`;
 
     $.ajax({
       url: uvIndexUrl,
