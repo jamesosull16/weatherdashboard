@@ -125,7 +125,7 @@ var fiveDay = function (lat, lon) {
 
       var fiveDayWeatherIcon = data.daily[i].weather.icon;
       var fiveDayWeatherIconUrl =
-        "<img src='http://openweathermap.org/img/wn/" +
+        "<img src='https://openweathermap.org/img/wn/" +
         fiveDayWeatherIcon +
         "@2x.png'></img>";
 
