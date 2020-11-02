@@ -125,9 +125,9 @@ var fiveDay = function (lat, lon) {
 
       var fiveDayWeatherIcon = data.daily[i].weather.icon;
       var fiveDayWeatherIconUrl =
-        "<img src='https://openweathermap.org/img/wn/" +
+        "<img src='http://openweathermap.org/img/wn/" +
         fiveDayWeatherIcon +
-        "@2x.png' width='60'></img>";
+        "@2x.png'></img>";
 
       title.text("5-Day Forecast:");
       date.text(moment.unix(data.daily[i].dt).format("MM/DD/YYYY"));
