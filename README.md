@@ -8,7 +8,7 @@
 
 ## A look into the App
 
-:![Weather App](./assets/weatherapp.jpg)
+:![Weather App](./assets/weather.jpg)
 
 ## Links
 
